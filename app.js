@@ -99,3 +99,13 @@ const handleRate = (id, ratingChange) => {
 
 // Initiales Rendering
 render(flashcards);
+
+if (typeof module !== 'undefined') {
+    module.exports = {
+        createFlashcard,
+        addFlashcard,
+        deleteFlashcard,
+        rateFlashcard,
+        toggleAnswer
+    };
+}
