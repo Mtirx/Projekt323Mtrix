@@ -16,23 +16,6 @@ const addFlashcard = (flashcards, question, answer) => [
 const deleteFlashcard = (flashcards, id) =>
     flashcards.filter(card => card.id !== id);
 
-// Funktion zur Bewertung einer Karte
-const rateFlashcard = (flashcards, id, ratingChange) => {
-    const index = flashcards.findIndex(card => card.id === id);
-    if (index === -1) return flashcards;
-
-    const updatedCard = {
-        ...flashcards[index],
-        rating: flashcards[index].rating + ratingChange
-    };
-
-    return [
-        ...flashcards.slice(0, index),
-        updatedCard,
-        ...flashcards.slice(index + 1)
-    ].sort((a, b) => b.rating - a.rating); // Sortiere nach Bewertung absteige
-};
-
 // Funktion um Umschalten der Antwortanzeige
 const toggleAnswer = (id) => {
     const answerElement = document.getElementById(`answer-${id}`);
